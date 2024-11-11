@@ -1,0 +1,10 @@
+.env
+__pycache__
+.DS_STORE
+.DS_Store
+.python-version
+.venv
+certs/ca_cert.pem
+certs/ca_key.pem
+certs/my_signed_client_cert.pem
+certs

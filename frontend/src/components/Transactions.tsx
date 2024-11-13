@@ -12,7 +12,7 @@ function Transactions(props: any) {
   return (
     <div
       style={{ overflow: "auto" }}
-      className="w-[55vw] min-w-[600px] h-[40vh] m-h-[400px] shadow-lg bg-white rounded-lg p-4 ml-3"
+      className="w-[55vw] min-w-[600px] h-[32vh] m-h-[400px] shadow-lg bg-white rounded-lg p-4 ml-3"
     >
       <Table>
         <TableCaption>A list of your recent transactions.</TableCaption>

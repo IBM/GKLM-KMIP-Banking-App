@@ -23,6 +23,10 @@ export default function Home() {
   const [transactions, setTransactions] = useState(Array<any>());
   const billRef = useRef<HTMLInputElement>(null);
   const sendRef = useRef<HTMLInputElement>(null);
+  const upiRef = useRef<HTMLInputElement>(null);
+  const custRef = useRef<HTMLInputElement>(null);
+  const providerRef = useRef<HTMLInputElement>(null);
+
   const [isProcessing, setIsProcessing] = useState(false);
 
   useEffect(() => {
@@ -57,6 +61,9 @@ export default function Home() {
     } else if (type === "Amount Sent" && sendRef.current) {
       sendRef.current.value = "";
     }
+    upiRef.current ? (upiRef.current.value = "") : null;
+    custRef.current ? (custRef.current.value = "") : null;
+    providerRef.current ? (providerRef.current.value = "") : null;
   };
 
   const handleClose = () => {
@@ -104,8 +111,16 @@ export default function Home() {
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <p className="mb-2">Enter Amount</p>
-                <Input ref={sendRef} type="number" />
+                <div>
+                  <div className="mb-4">
+                    <p className="mb-2">Enter UPI ID</p>
+                    <Input ref={upiRef} />
+                  </div>
+                  <div>
+                    <p className="mb-2">Enter Amount</p>
+                    <Input ref={sendRef} type="number" />
+                  </div>
+                </div>
               </CardContent>
               <CardFooter>
                 <Button
@@ -129,8 +144,20 @@ export default function Home() {
                 <CardDescription>Easily Pay Your Utility Bills</CardDescription>
               </CardHeader>
               <CardContent>
-                <p className="mb-2">Enter Amount</p>
-                <Input ref={billRef} type="number" />
+                <div className="flex flex-row gap-4 items-end mb-4">
+                  <div className="w-[50%]">
+                    <p className="mb-2"> Service Provider </p>
+                    <Input ref={providerRef} />
+                  </div>
+                  <div className="w-[50%]">
+                    <p className="mb-2">Enter Customer ID</p>
+                    <Input ref={custRef} />
+                  </div>
+                </div>
+                <div>
+                  <p className="mb-2">Enter Amount</p>
+                  <Input ref={billRef} type="number" />
+                </div>
               </CardContent>
               <CardFooter>
                 <Button

@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import {
   Dialog,
   DialogContent,
@@ -13,14 +13,16 @@ import { Input } from "@/components/ui/input";
 import { decrypt } from "@/lib/utils";
 import Transactions from "@/components/Transactions";
 function ViewTransactions(props: any) {
-  const [transactions, setTransactions] = useState<any>(
-    localStorage.getItem("encTnx")
-      ? JSON.parse(localStorage.getItem("encTnx")!)
-      : []
-  );
+  const [transactions, setTransactions] = useState<any>([]);
   const [decrypting, setDecrypting] = useState<boolean>(false);
   const [viewTnx, setViewTnx] = useState<boolean>(false);
   const keyIdRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    localStorage.getItem("transactions")
+      ? setTransactions(JSON.parse(localStorage.getItem("transactions")!))
+      : null;
+  }, []);
   const decryptTransactions = async () => {
     if (!keyIdRef.current?.value) {
       alert("Please enter a valid key id");

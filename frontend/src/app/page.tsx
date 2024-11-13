@@ -107,13 +107,13 @@ export default function Home() {
               <CardHeader>
                 <CardTitle>Send Money</CardTitle>
                 <CardDescription>
-                  Send Money easily to any UPI ID
+                  Send Money easily to any Recipient
                 </CardDescription>
               </CardHeader>
               <CardContent>
                 <div>
                   <div className="mb-4">
-                    <p className="mb-2">Enter UPI ID</p>
+                    <p className="mb-2">Enter Recipient</p>
                     <Input ref={upiRef} />
                   </div>
                   <div>

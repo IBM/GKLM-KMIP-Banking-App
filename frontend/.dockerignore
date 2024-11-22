@@ -1,0 +1,8 @@
+node_modules
+npm-debug.log
+.next
+node_modules
+.git
+.gitignore
+*.md
+dist

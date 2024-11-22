@@ -1,0 +1,7 @@
+.env
+__pycache__
+.DS_STORE
+.DS_Store
+.python-version
+.venv
+flask-app.tar
